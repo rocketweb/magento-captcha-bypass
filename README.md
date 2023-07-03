@@ -15,7 +15,17 @@ random string for Secret Key field:
 ![Screenshot from Admin displaying Secret Key field](https://user-images.githubusercontent.com/9031414/250605077-4fc259d6-3f7a-4001-8154-4ca4893d7eb8.png)
 
 ## Usage
-When creating a Cypress Test, first you need to add ``CryptoJs`` library (or something similar that supports MD5):
+First, you need to add the Secret Key to the `cypress.config.js` you are using:
+```
+module.exports = defineConfig({
+    projectId: "xxxxxx",
+    e2e: {
+        ...
+        secretKey: '-key-from-magento-configuration-',
+        ....
+```
+
+Next, you need to add ``CryptoJs`` library (or something similar that supports MD5):
 ```
 npm install crypto-js
 ```
@@ -32,7 +42,7 @@ The final step is setting the Cookie needed to activate the Recaptcha Bypass
 inside the `it()` before any `cy.visit(...)` is called:
 ```
 it(['Can create an account', () => {
-    let secretKey = '-Secret-Key-value-from-above-'
+    let secretKey = Cypress.config('secretKey')
     let date = new Date(). getTime()
     let hash = CryptoJS.MD5(secretKey + '-' + date).toString(CryptoJS.enc.Hex)
     cy.setCookie('__rbp', hash);
