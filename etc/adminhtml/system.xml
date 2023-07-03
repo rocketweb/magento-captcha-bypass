@@ -8,6 +8,7 @@
                 <field id="secret_key" translate="label" sortOrder="100" type="text" showInDefault="1"
                        showInWebsite="1" showInStore="0">
                     <comment><model>RocketWeb\CaptchaBypass\Config\Comment</model></comment>
+                    <label>Security Key</label>
                 </field>
             </group>
         </section>
