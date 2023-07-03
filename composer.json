@@ -1,0 +1,31 @@
+{
+    "name": "rocketweb/magento-captcha-bypass",
+    "description": "The extension disables Google reCAPTCHA by providing a simple hashed value thru a cookie",
+    "require": {
+        "ext-simplexml": "*",
+        "ext-dom": "*",
+        "php": "^7.4.0",
+        "magento/magento-composer-installer": "*"
+    },
+    "type": "magento2-module",
+    "version": "1.0.0",
+    "license": [
+        "OSL-3.0",
+        "AFL-3.0"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "RocketWeb\\CaptchaBypass\\": ""
+        }
+    },
+    "extra": {
+        "map": [
+            [
+                "RocketWeb/CaptchaBypass"
+            ]
+        ]
+    }
+}
