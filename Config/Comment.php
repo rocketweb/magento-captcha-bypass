@@ -35,7 +35,7 @@ class Comment implements CommentInterface
         <code><pre>
 
         let secretKey = \'-the-value-from-above-\'
-        let date = new Date(). getTime()
+        let date = parseInt(new Date(). getTime()/1000);
         let hash = CryptoJS.MD5(secretKey + \'-\' + date).toString(CryptoJS.enc.Hex)
         cy.setCookie(\'' . Provider::COOKIE_KEY . '\', hash);
         </pre></code>

@@ -43,7 +43,7 @@ inside the `it()` before any `cy.visit(...)` is called:
 ```
 it(['Can create an account', () => {
     let secretKey = Cypress.config('secretKey')
-    let date = new Date(). getTime()
+    let date = parseInt(new Date(). getTime()/1000);
     let hash = CryptoJS.MD5(secretKey + '-' + date).toString(CryptoJS.enc.Hex)
     cy.setCookie('__rbp', hash);
 
